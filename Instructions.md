@@ -1,3 +1,38 @@
+# npm installs:
+
+## NEXT.JS
+npx create-next-app my-project
+cd my-project
+
+# next.config
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  swcMinify: true,
+  reactStrictMode: true,
+}
+
+module.exports = nextConfig
+
+
+## TAILWIND.CSS
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+# tailwind.config
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  mode: "jit",
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+# globals.css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,12 +46,6 @@
   }
   .between{
     @apply flex items-center justify-between;
-  }
-  .start{
-    @apply flex items-center justify-start;
-  }
-  .end{
-    @apply flex items-center justify-end;
   }
   .p-text{
     @apply py-2 px-4 sm:py-4 sm:px-6 md:py-6 md:px-8
@@ -50,19 +79,27 @@
   }
 }
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+## REACT ICONS
+npm install react-icons --save
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+## FRAMER MOTION
+npm i framer-motion
 
-* {
-  box-sizing: border-box;
-}
+## RECOIL.JS
+npm install recoil
+
+## CONTENTFUL
+npm i contentful
+npm i @contentful/rich-text-react-renderer
+
+
+
+## REMOVE
+- Home.module.css
+- index.js
+
+## COPY PASTE
+- components folder
+- _app.js
+- index.js
+- about.js
