@@ -108,3 +108,4 @@ npm i @contentful/rich-text-react-renderer
 - remove node_modules
 - check package.json (newest versions of react etc.)
 - npm install
+# portfolio-jakob
