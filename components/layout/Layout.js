@@ -1,30 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import MetaHead from '../MetaHead'
-import Footer from './Footer'
-import Page from './Page'
 import SideBar from './SideBar'
-import TopBar from './TopBar'
 
-export default function Layout({ children }) {
+export default function Layout({ isDark, screen, info, children }) {
 
-    const navItems = [
-        {
-            title: 'Home', //paste ReactIcon if wanted
-            href: '/'
-        },
-        {
-            title: 'About', //paste ReactIcon if wanted
-            href: '/about'
-        }
-    ]
-
-    return <div>
+    return <div className={`${isDark && 'dark'}`}>
         <MetaHead />
-        <SideBar navItems={navItems} isActive={true} setisActive={() => {}}/>
-        <TopBar navItems={navItems} />
-        <Page>
+        <SideBar screen={screen} info={info}>
             {children}
-        </Page>
-        <Footer/>
+        </SideBar>
     </div>
 }
