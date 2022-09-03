@@ -17,7 +17,6 @@ export default function Story({ slug, stories, setstories, kurzgeschichten, seti
     kurzgeschichten && setstories(kurzgeschichten)
     information && setinfo(information)
   }, [kurzgeschichten])
-  console.log(stories)
 
   if(kurzgeschichten) return (
     <div className='mb-40 px-4 lg:px-24'>

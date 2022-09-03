@@ -10,20 +10,20 @@ export default function MetaHead() {
 
     useEffect(() => {
         switch (router.asPath) {
-          case '/': 
-            setcontent('Site specific content')
-            settitle('Site specific title')
-            break;
+          // case '/': 
+          //   setcontent('Tauche ein in die wunderbare Welt von Jakob')
+          //   settitle('Jakob\'s Blog')
+          //   break;
           default: 
-            setcontent('Site specific content')
-            settitle('Site specific title')
+            setcontent('Tauche ein in die wunderbare Welt von Jakob und entdecke seine Gedichte, Geschichten, Reiseberichte und Bilder. Viel Spaß!')
+            settitle('Jakob\'s Blog')
             break;
         }
     }, [router])
 
   return (
     <Head>
-      <title>Title</title>
+      <title>{title}</title>
       <meta name="theme-color" content="#000000"/>
       <meta name={title} content={content} />
       {/* <link rel="icon" type="image/png" href="/icon-192x192.png" /> */}

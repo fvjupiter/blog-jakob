@@ -51,11 +51,11 @@ export default function Imprint({ screen, isImprint, setisImprint }) {
                 <span className="font-bold">Contact:</span><br/>
 
                 Verantwortlich für den Inhalt nach §55 Abs. 2 RStV:<br/>
-                Imke Bolz, Humboldtstr. 16, 28203 Bremen<br/>
-                +49 152 57618844, bolz.imke@gmail.com, USt-IdNr. XXXX, Finanzamt XXXX
+                Jakob Kirpal, Humboldtstr. 166, 28203 Bremen<br/>
+                +49 152 576, kirpal.jakob@gmail.com, USt-IdNr. XXXX, Finanzamt XXXX
                 <br/><br/>
                 <span className="font-bold">Copyright:</span><br/>
-                Unless otherwise indicated, all material on this website is copyrighted by Imke Bolz. All rights reserved. No part of this website, either text or image may be used for any purpose other than personal use. Reproduction, modification, storage in a retrieval system or retransmission, in any form or by any means, electronic, mechanical or otherwise, for reasons other than personal use, is strictly prohibited without prior written consent.
+                Unless otherwise indicated, all material on this website is copyrighted by Jakob Kirpal. All rights reserved. No part of this website, either text or image may be used for any purpose other than personal use. Reproduction, modification, storage in a retrieval system or retransmission, in any form or by any means, electronic, mechanical or otherwise, for reasons other than personal use, is strictly prohibited without prior written consent.
                 <br/><br/>
                 <span className="font-bold">Haftungsausschluss:</span><br/>
                 § 1 Warnhinweis zu Inhalten Die kostenlosen und frei zugänglichen Inhalte dieser Webseite wurden mit größtmöglicher Sorgfalt erstellt. Der Anbieter dieser Webseite übernimmt jedoch keine Gewähr für die Richtigkeit und Aktualität der kostenlos und frei zugänglich bereitgestellten Inhalte. Namentlich gekennzeichnete Beiträge geben die Meinung des jeweiligen Autors und nicht immer die Meinung des Anbieters wieder. Allein durch den Aufruf der kostenlosen und frei zugänglichen Inhalte kommt keinerlei Vertragsverhältnis zwischen dem Nutzer und dem Anbieter zustande, insoweit fehlt es am Rechtsbindungswillen des Anbieters.

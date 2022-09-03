@@ -4,6 +4,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import Image from 'next/image'
 import Footer from './Footer'
 import Imprint from './Imprint'
 import Contactcard from './Contactcard'
@@ -90,13 +91,18 @@ export default function SideBar({ screen, info, children }) {
                     </div>
                   </Transition.Child>
                   <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
-                      <div onClick={() => setisContact(true)} className="center">
-                          <img
-                            className="inline-block h-12 w-12 rounded-full"
-                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt=""
-                          />
-                      </div>
+                    {info && <div 
+                      onClick={() => setisContact(true)} 
+                      className="relative center h-12 w-12 rounded-full overflow-hidden mx-auto"
+                      >
+                      <Image 
+                        src={`https:${info.profilbild.fields.file.url}`}
+                        alt={info.profilbild.fields.title}
+                        layout="fill"
+                        objectFit="cover"
+                        objectPosition="center"
+                      />
+                    </div>}
                     <nav className="mt-5 px-2 space-y-1">
                       {navigation.map((item) => (
                         <Link
@@ -135,14 +141,17 @@ export default function SideBar({ screen, info, children }) {
           <div className="flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white">
             <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-scroll">
               <div className="center flex-shrink-0 px-4">
-                  <div onClick={() => setisContact(true)} className="center cursor-pointer">
-                      <img
-                        className="inline-block h-12 w-12 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt=""
-                      />
-                  </div>
-
+                {info && <div 
+                    onClick={() => setisContact(true)} 
+                    className="relative center h-12 w-12 rounded-full overflow-hidden mx-auto">
+                    <Image 
+                      src={`https:${info.profilbild.fields.file.url}`}
+                      alt={info.profilbild.fields.title}
+                      layout="fill"
+                      objectFit="cover"
+                      objectPosition="center"
+                    />
+                  </div>}
               </div>
               <nav className="mt-5 flex-1 px-2 bg-white space-y-1">
                 {navigation.map((item) => (
@@ -171,15 +180,16 @@ export default function SideBar({ screen, info, children }) {
           </div>
         </div>
         <div className="md:pl-64 flex flex-col flex-1">
-          <div className={`
-            ${!isRoute('/reisebericht') && 'shadow-2xl shadow-black/30'}
-            sticky -top-[1px] -translate-y-[1px] z-30 md:hidden 
-            pl-1 pt-1 sm:pl-3 sm:pt-3 between backdrop
-          `}>
+          <div onClick={() => setSidebarOpen(true)}
+            className={`
+              ${!isRoute('/reisebericht') && 'shadow-2xl shadow-black/30'}
+              sticky -top-[1px] -translate-y-[1px] z-30 md:hidden 
+              pl-1 pt-1 sm:pl-3 sm:pt-3 between backdrop
+            `}>
             <button
               type="button"
               className="-ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900"
-              onClick={() => setSidebarOpen(true)}
+              // onClick={() => setSidebarOpen(true)}
             >
               <span className="sr-only">Open sidebar</span>
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />

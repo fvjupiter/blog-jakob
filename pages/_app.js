@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+// import { ImageViewer } from '../components/ImageViewer'
 import Layout from '../components/layout/Layout'
 import ScreenObserver from '../components/ScreenObserver'
 import '../styles/globals.css'
@@ -9,10 +10,17 @@ function MyApp({ Component, pageProps }) {
   const [screen, setscreen] = useState({ width: 0, height: 0 })
   const [stories, setstories] = useState([])
   const [poems, setpoems] = useState([])
-  const [info, setinfo] = useState(0)
+  const [info, setinfo] = useState(null)
 
   return <>
     <ScreenObserver setscreen={setscreen} />
+    {/* <ImageViewer
+      imgArr={imgArrFullscreen} 
+      isFSVisible={isFSVisible} 
+      setisFSVisible={setisFSVisible} 
+      imgId={imgIdFullscreen} 
+      setImgIdFullscreen={setImgIdFullscreen}
+    /> */}
     <Layout isDark={isDark} screen={screen} info={info}>
       <Component 
         {...pageProps} 

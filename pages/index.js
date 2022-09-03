@@ -32,7 +32,7 @@ export default function Home({ screen, setinfo, information }) {
           <div className={`${cN} ${colored.lime}`}>
             <div>
               <div className='text-center mb-2'>Reisebericht</div>
-              <div className='text-base font-normal'>{documentToReactComponents(information.fields.shortDesArticle, richText_Options)}</div>
+              <div className='text-base font-normal'>{documentToReactComponents(information.shortDesArticle, richText_Options)}</div>
             </div>
           </div>
         </Link>
@@ -40,7 +40,7 @@ export default function Home({ screen, setinfo, information }) {
           <div className={`${cN} ${colored.pink}`}>
             <div>
               <div className='text-center mb-2'>Gedichte</div>
-              <div className='text-base font-normal'>{documentToReactComponents(information.fields.shortDesGedichte, richText_Options)}</div>
+              <div className='text-base font-normal'>{documentToReactComponents(information.shortDesGedichte, richText_Options)}</div>
             </div>
           </div>
         </Link>
@@ -50,7 +50,7 @@ export default function Home({ screen, setinfo, information }) {
           <div className={`${cN} ${colored.blue}`}>
             <div>
               <div className='text-center mb-2'>Kurzgeschichten</div>
-              <div className='text-base font-normal'>{documentToReactComponents(information.fields.shortDesStories, richText_Options)}</div>
+              <div className='text-base font-normal'>{documentToReactComponents(information.shortDesStories, richText_Options)}</div>
             </div>
           </div>
         </Link>
@@ -58,7 +58,7 @@ export default function Home({ screen, setinfo, information }) {
           <div className={`${cN} ${colored.yellow}`}>
             <div>
               <div className='text-center mb-2'>Bilder</div>
-              <div className='text-base font-normal'>{documentToReactComponents(information.fields.shortDesBilder, richText_Options)}</div>
+              <div className='text-base font-normal'>{documentToReactComponents(information.shortDesBilder, richText_Options)}</div>
             </div>
           </div>
         </Link>
@@ -79,7 +79,7 @@ export async function getStaticProps() {
 
   return {
       props: {
-          information: res.items[0],
+          information: res.items[0].fields,
       }
   }
 }
