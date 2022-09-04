@@ -24,7 +24,7 @@ export default function Stories({ stories, setstories, setinfo, information, kur
     <div className='mb-40 px-4 md:px-24'>
         <div className='py-20 text-blue-900 text-center'>
           <h1 className='text-4xl sm:text-5xl font-semibold text-center'>Kurzgeschichten</h1>
-          <div>{documentToReactComponents(information.descriptionStories, richText_Options)}</div>
+          <div className='p-des'>{documentToReactComponents(information.descriptionStories, richText_Options)}</div>
         </div>
         <div className='flex flex-wrap justify-center'>
           {stories && stories.map((story, index) => (

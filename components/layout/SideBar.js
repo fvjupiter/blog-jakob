@@ -93,7 +93,7 @@ export default function SideBar({ screen, info, children }) {
                   <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
                     {info && <div 
                       onClick={() => setisContact(true)} 
-                      className="relative center h-12 w-12 rounded-full overflow-hidden mx-auto"
+                      className="relative center h-12 w-12 rounded-full overflow-hidden mx-auto cursor-pointer"
                       >
                       <Image 
                         src={`https:${info.profilbild.fields.file.url}`}
@@ -143,13 +143,14 @@ export default function SideBar({ screen, info, children }) {
               <div className="center flex-shrink-0 px-4">
                 {info && <div 
                     onClick={() => setisContact(true)} 
-                    className="relative center h-12 w-12 rounded-full overflow-hidden mx-auto">
+                    className="group relative center h-12 w-12 rounded-full overflow-hidden mx-auto cursor-pointer">
                     <Image 
                       src={`https:${info.profilbild.fields.file.url}`}
                       alt={info.profilbild.fields.title}
                       layout="fill"
                       objectFit="cover"
                       objectPosition="center"
+                      className='group-hover:scale-[1.4] duration'
                     />
                   </div>}
               </div>

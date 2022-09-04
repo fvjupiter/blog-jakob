@@ -16,7 +16,7 @@ export default function Home({ screen, setinfo, information }) {
   useEffect(() => information && setinfo(information), [information])
 
    //classNames
-   const cN = `m-6 p-4 text-2xl font-semibold bg-gradient-to-b rounded-lg border ring-1 shadow-2xl shadow-black/30 hover:shadow-none hover:ring-transparent duration md:w-1/2 center cursor-pointer`
+   const cN = `m-6 p-4 text-2xl font-semibold bg-gradient-to-b rounded-lg border ring-1 shadow-2xl shadow-black/30 hover:shadow-none hover:ring-transparent duration lg:w-1/2 center cursor-pointer`
    const colored = {
      lime: 'from-lime-200 to-lime-300 border-lime-400 ring-lime-900 text-lime-900',
      pink: 'from-pink-200 to-pink-300 border-pink-400 ring-pink-900 text-pink-900',
@@ -25,43 +25,27 @@ export default function Home({ screen, setinfo, information }) {
      blue: 'from-blue-200 to-blue-300 border-blue-400 ring-blue-900 text-blue-900'
    }
 
+  const getCard = (title, color, href, key) => <Link 
+    href={href} key={key}>
+        <div className={`${cN} ${colored[color]}`}>
+          <div>
+            <div className='text-center mb-1'>{title}</div>
+            <div className='text-base font-normal p-1 leading-8 overflow-hidden text-justify'>
+              {documentToReactComponents(information[key], richText_Options)}
+            </div>
+          </div>
+        </div>
+  </Link>
+  
   if(information) return <>
     <div className='h-screen w-full mb-20'>
-      <div className={`w-full md:h-[50vh] md:p-4 md:pb-0 md:flex`}>
-        <Link href='reisebericht'>
-          <div className={`${cN} ${colored.lime}`}>
-            <div>
-              <div className='text-center mb-2'>Reisebericht</div>
-              <div className='text-base font-normal'>{documentToReactComponents(information.shortDesArticle, richText_Options)}</div>
-            </div>
-          </div>
-        </Link>
-        <Link href='gedichte'>
-          <div className={`${cN} ${colored.pink}`}>
-            <div>
-              <div className='text-center mb-2'>Gedichte</div>
-              <div className='text-base font-normal'>{documentToReactComponents(information.shortDesGedichte, richText_Options)}</div>
-            </div>
-          </div>
-        </Link>
+      <div className={`w-full lg:min-h-[50vh] lg:p-4 lg:pb-0 lg:flex`}>
+        {getCard('Reisebericht', 'lime', 'reisebericht', 'shortDesArticle')}
+        {getCard('Gedichte', 'pink', 'gedichte', 'shortDesGedichte')}
       </div>
-      <div className={`w-full md:h-[50vh] md:p-4 md:pt-0 md:flex`}>
-        <Link href='kurzgeschichten'>
-          <div className={`${cN} ${colored.blue}`}>
-            <div>
-              <div className='text-center mb-2'>Kurzgeschichten</div>
-              <div className='text-base font-normal'>{documentToReactComponents(information.shortDesStories, richText_Options)}</div>
-            </div>
-          </div>
-        </Link>
-        <Link href='bilder'>
-          <div className={`${cN} ${colored.yellow}`}>
-            <div>
-              <div className='text-center mb-2'>Bilder</div>
-              <div className='text-base font-normal'>{documentToReactComponents(information.shortDesBilder, richText_Options)}</div>
-            </div>
-          </div>
-        </Link>
+      <div className={`w-full lg:min-h-[50vh] lg:p-4 lg:pt-0 lg:flex`}>
+        {getCard('Kurzgeschichten', 'blue', 'kurzgeschichten', 'shortDesStories')}
+        {getCard('Bilder', 'yellow', 'bilder', 'shortDesBilder')}
       </div>
     </div>
   </>

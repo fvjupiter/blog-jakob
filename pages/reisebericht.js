@@ -15,10 +15,10 @@ const richText_Options = {
 export default function Reisebericht({ isDark, articles, setinfo, information }) {
     useEffect(() => information && setinfo(information), [information])
     if(information && articles) return <>
-        <div className='mb-40 md:px-24'>
+        <div className='mb-40 lg:px-24'>
             <div className='py-20 text-lime-900 text-center'>
               <h1 className='text-4xl sm:text-5xl font-semibold text-center mb-4'>Reisebericht</h1>
-              <div>{documentToReactComponents(information.descriptionArticle, richText_Options)}</div>
+              <div className='p-des'>{documentToReactComponents(information.descriptionArticle, richText_Options)}</div>
             </div>
             {articles.length && articles.map((item, index) => (
               <div key={index} className={`relative`}>
@@ -45,20 +45,20 @@ const Article = ({ props, click }) => {
     <div 
       onClick={() => setisOpen(!isOpen)}
       className={`
-        sticky top-12 md:top-0 between z-10
-        md:h-20 h-[52px] w-full -translate-y-[1px]
-        py-2 px-4 sm:px-10 md:px-32 mx-auto
+        sticky top-12 sm:top-[56px] md:top-0 between z-10
+        xl:h-16 h-[52px] w-full -translate-y-[1px]
+        py-2 px-4 sm:px-10 xl:px-32 mx-auto
         bg-gradient-to-b rounded-b-g border-b shadow-xl
         md:rounded-lg
         from-lime-200 to-lime-300 border-lime-400 ring-lime-900 text-lime-900
         duration
       `}
       >
-      <div className={`text-lg md:text-xl font-semibold`}>
+      <div className={`text-lg lg:text-xl font-semibold`}>
           {props.title}
       </div>
       <div className='center'>
-        {<div className='hidden md:block'>{getDate(props.date)}</div>}
+        {<div className='hidden lg:block'>{getDate(props.date)}</div>}
         <GoLocation size={30} className={`${showLocation ? 'text-white' : 'rotate-0'} ml-4 duration cursor-pointer hover:text-white`}/>
         <BsChevronDown size={30} className={`${isOpen ? 'rotate-180' : 'rotate-0'} ml-4 duration cursor-pointer hover:text-white`}/>
       </div>

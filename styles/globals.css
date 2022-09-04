@@ -19,7 +19,10 @@
     @apply flex items-center justify-end;
   }
   .p-text{
-    @apply py-2 px-4 sm:py-8 sm:px-10 md:py-12 md:px-32
+    @apply py-2 px-4 sm:py-8 sm:px-10 xl:py-12 xl:px-32
+  }
+  .p-des{
+    @apply py-2 px-4 sm:py-8 sm:px-10
   }
   .page-title{
     @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold w-fit mx-auto my-8
