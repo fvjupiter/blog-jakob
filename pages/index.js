@@ -38,7 +38,7 @@ export default function Home({ screen, setinfo, information }) {
   </Link>
   
   if(information) return <>
-    <div className='h-screen w-full mb-20'>
+    <div className='h-screen w-full mb-40'>
       <div className={`w-full lg:min-h-[50vh] lg:p-4 lg:pb-0 lg:flex`}>
         {getCard('Reisebericht', 'lime', 'reisebericht', 'shortDesArticle')}
         {getCard('Gedichte', 'pink', 'gedichte', 'shortDesGedichte')}

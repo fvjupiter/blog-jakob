@@ -26,7 +26,7 @@ export default function Story({ slug, stories, setstories, kurzgeschichten, seti
         </div>
       <div className={`
           w-full sm:w-11/12 max-w-[1280px] m-6 mt-0 mb-12 p-4 mx-auto
-          text-center text-xl
+          p-text leading-8 overflow-hidden text-justify
           bg-gradient-to-b rounded-lg border ring-1
           from-white to-blue-50 border-blue-400 ring-blue-900 text-blue-900
           shadow-2xl
