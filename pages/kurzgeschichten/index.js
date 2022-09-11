@@ -26,11 +26,11 @@ export default function Stories({ stories, setstories, setinfo, information, kur
           <h1 className='text-4xl sm:text-5xl font-semibold text-center'>Kurzgeschichten</h1>
           <div className='p-des'>{documentToReactComponents(information.descriptionStories, richText_Options)}</div>
         </div>
-        <div className='flex flex-wrap justify-center'>
+        <div className='flex flex-wrap justify-center px-2 lg:px-0'>
           {stories && stories.map((story, index) => (
             <Link key={index} href={`/kurzgeschichten/${story.fields.slug}`}>
               <div className={`
-                w-96 h-32 md:m-6 lg:m-8 mt-0 mb-8 p-4 center
+                w-full xl:w-96 h-32 md:m-6 lg:m-8 mt-0 mb-8 p-4 center
                 text-center text-xl font-semibold 
                 bg-gradient-to-b rounded-lg border ring-1
                 from-white to-blue-50 

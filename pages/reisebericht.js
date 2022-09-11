@@ -63,14 +63,12 @@ const Article = ({ props, click }) => {
         <BsChevronDown size={30} className={`${isOpen ? 'rotate-180' : 'rotate-0'} ml-4 duration cursor-pointer hover:text-white`}/>
       </div>
     </div>
-    <div className={`${isOpen ? 'h-fit' : 'h-40'} relative p-text leading-8 overflow-hidden text-justify dark:bg-gradient-to-br dark:from-stone-800 dark:to-stone-900 dark:text-lime-100 shadow-2xl dark:shadow-black`}>
+    <div className={`${isOpen ? 'h-fit' : 'h-40'} relative p-text leading-8 overflow-hidden text-justify dark:bg-gradient-to-br dark:from-stone-800 dark:to-stone-900 dark:text-lime-100 dark:shadow-2xl dark:shadow-black`}>
         {documentToReactComponents(props.content, richText_Options)}
         <div className={`${isOpen ? 'opacity-0' : 'opacity-100'} absolute inset-0 bg-gradient-to-t from-white via-white/70 dark:from-black dark:via-black/70 duration`}/>
     </div>
   </>
 }
-
-// md:-top-[1px] top-[58px]
 
 export async function getStaticProps() {
 

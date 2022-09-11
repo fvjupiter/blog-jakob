@@ -25,11 +25,11 @@ export default function Gedichte({ poems, setpoems, gedichte, setinfo, informati
           <h1 className='text-4xl sm:text-5xl font-semibold text-center'>Gedichte</h1>
           {/* <div>{documentToReactComponents(info.descriptionGedichte, richText_Options)}</div> */}
         </div>
-        <div className='flex flex-wrap justify-center md:-mt-6'>
+        <div className='flex flex-wrap justify-center md:-mt-6 px-2 lg:px-0'>
           {poems && poems.map((poem, index) => (
             <Link key={index} href={`/gedichte/${poem.fields.slug}`}>
               <div className={`
-                w-96 h-32 md:m-6 lg:m-8 mt-0 mb-8 p-4 center
+                w-full xl:w-96 h-32 md:m-6 lg:m-8 mt-0 mb-8 p-4 center
                 text-center text-xl font-semibold 
                 bg-gradient-to-b rounded-lg border ring-1
                 from-white to-pink-50
