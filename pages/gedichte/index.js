@@ -21,7 +21,7 @@ export default function Gedichte({ poems, setpoems, gedichte, setinfo, informati
 
   return (
     <div className='mb-40 px-4 lg:px-24'>
-        <div className='py-20 text-pink-900 text-center'>
+        <div className='py-20 text-pink-900 dark:text-pink-100 text-center'>
           <h1 className='text-4xl sm:text-5xl font-semibold text-center'>Gedichte</h1>
           {/* <div>{documentToReactComponents(info.descriptionGedichte, richText_Options)}</div> */}
         </div>
@@ -32,8 +32,10 @@ export default function Gedichte({ poems, setpoems, gedichte, setinfo, informati
                 w-96 md:m-6 lg:m-8 mt-0 mb-8 p-4 lg:py-8
                 text-center text-xl font-semibold 
                 bg-gradient-to-b rounded-lg border ring-1
-                from-white to-pink-50 border-pink-400 ring-pink-900 text-pink-900
-                shadow-2xl hover:shadow-none hover:ring-transparent duration cursor-pointer 
+                from-white to-pink-50
+                dark:from-pink-200 dark:to-pink-300 
+                border-pink-400 ring-pink-900 text-pink-900
+                shadow-2xl dark:shadow-black/80 hover:shadow-none hover:ring-transparent duration cursor-pointer 
                 `}>
                 {poem.fields.title}
                 <div className='text-base font-normal'>{poem.fields.datum}</div>

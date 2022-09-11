@@ -22,7 +22,7 @@ export default function Stories({ stories, setstories, setinfo, information, kur
 
   if(stories && information)return (
     <div className='mb-40 px-4 md:px-24'>
-        <div className='py-20 text-blue-900 text-center'>
+        <div className='py-20 text-blue-900 dark:text-blue-100 text-center'>
           <h1 className='text-4xl sm:text-5xl font-semibold text-center'>Kurzgeschichten</h1>
           <div className='p-des'>{documentToReactComponents(information.descriptionStories, richText_Options)}</div>
         </div>
@@ -33,8 +33,10 @@ export default function Stories({ stories, setstories, setinfo, information, kur
                 w-96 md:m-6 lg:m-8 mt-0 mb-8 p-4 lg:py-8
                 text-center text-xl font-semibold 
                 bg-gradient-to-b rounded-lg border ring-1
-                from-white to-blue-50 border-blue-400 ring-blue-900 text-blue-900
-                shadow-2xl hover:shadow-none hover:ring-transparent duration cursor-pointer 
+                from-white to-blue-50 
+                dark:from-blue-200 dark:to-blue-300 
+                border-blue-400 ring-blue-900 text-blue-900
+                shadow-2xl dark:shadow-black/80 hover:shadow-none hover:ring-transparent duration cursor-pointer 
                 `}>
                 {story.fields.title}
                 <div className='text-base font-normal'>{story.fields.dateText}</div>

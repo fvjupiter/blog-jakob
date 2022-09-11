@@ -16,7 +16,7 @@ export default function Bilder({ screen, bilder, imgLinks, setinfo, information 
   const [imgId, setimgId] = useState(0)
   useEffect(() => information && setinfo(information), [information])
   return <>
-    <div className='py-20 text-yellow-900 text-center'>
+    <div className='py-20 text-yellow-900 dark:text-yellow-100 text-center'>
       <h1 className='text-4xl sm:text-5xl font-semibold text-center mb-2'>Bilder</h1>
       {/* <div className='p-des'>{documentToReactComponents(information.descriptionArticle, richText_Options)}</div> */}
     </div>

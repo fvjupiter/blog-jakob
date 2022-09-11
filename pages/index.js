@@ -16,7 +16,7 @@ export default function Home({ screen, setinfo, information }) {
   useEffect(() => information && setinfo(information), [information])
 
    //classNames
-   const cN = `m-6 p-4 text-2xl font-semibold bg-gradient-to-b rounded-lg border ring-1 shadow-2xl shadow-black/30 hover:shadow-none hover:ring-transparent duration lg:w-1/2 center cursor-pointer`
+   const cN = `m-6 p-4 text-2xl font-semibold bg-gradient-to-b rounded-lg border ring-1 shadow-2xl shadow-black/30 dark:shadow-black/80 hover:shadow-none hover:ring-transparent duration lg:w-1/2 center cursor-pointer`
    const colored = {
      lime: 'from-lime-200 to-lime-300 border-lime-400 ring-lime-900 text-lime-900',
      pink: 'from-pink-200 to-pink-300 border-pink-400 ring-pink-900 text-pink-900',

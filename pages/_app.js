@@ -21,12 +21,11 @@ function MyApp({ Component, pageProps }) {
       imgId={imgIdFullscreen} 
       setImgIdFullscreen={setImgIdFullscreen}
     /> */}
-    <Layout isDark={isDark} screen={screen} info={info}>
+    <Layout isDark={isDark} toggleMode={toggleMode} screen={screen} info={info}>
       <Component 
         {...pageProps} 
         screen={screen} 
-        isDark={isDark} 
-        toggleMode={toggleMode}
+        isDark={isDark}
         stories={stories}
         setstories={setstories}
         poems={poems}

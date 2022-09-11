@@ -19,23 +19,21 @@ export default function Gedicht({ screen, slug, poems, setpoems, gedichte, setin
     information && setinfo(information)
   }, [gedichte, information])
 
-  const [isLoading, setisLoading] = useState(false)
   const [poem, setpoem] = useState(null)
   useEffect(() => {
     const poem = poems.find(poem => poem.fields.slug === slug)
     setpoem(poem)
-    setisLoading(false)
   }, [slug, poems])
 
-  const cNButtons = `text-3xl lg:text-5xl text-pink-900 hover:text-pink-600 duration`
+  const cNButtons = `text-3xl lg:text-5xl text-pink-900 hover:text-pink-600 dark:text-pink-100 dark:hover:text-pink-400 duration`
   // create a function which uses next/link to navigate to the previous poem
   const PrevPoem = () => {
     const index = poems.findIndex(poem => poem.fields.slug === slug)
     const prevPoem = poems[index - 1]
     if (prevPoem) {
-      return <Link href={`/gedichte/${prevPoem.fields.slug}`}><a onClick={() => setisLoading(true)} className={`${cNButtons} left-0`}><BsChevronLeft/></a></Link>
+      return <Link href={`/gedichte/${prevPoem.fields.slug}`}><a className={`${cNButtons} left-0`}><BsChevronLeft/></a></Link>
     } else {
-      return <Link href={`/gedichte/${poems[poems.length - 1].fields.slug}`}><a onClick={() => setisLoading(true)} className={`${cNButtons} left-0`}><BsChevronLeft/></a></Link>
+      return <Link href={`/gedichte/${poems[poems.length - 1].fields.slug}`}><a className={`${cNButtons} left-0`}><BsChevronLeft/></a></Link>
     }
   }
 
@@ -44,24 +42,21 @@ export default function Gedicht({ screen, slug, poems, setpoems, gedichte, setin
     const index = poems.findIndex(poem => poem.fields.slug === slug)
     const nextPoem = poems[index + 1]
     if (nextPoem) {
-      return <Link href={`/gedichte/${nextPoem.fields.slug}`}><a onClick={() => setisLoading(true)} className={`${cNButtons} right-0`}><BsChevronRight/></a></Link>
+      return <Link href={`/gedichte/${nextPoem.fields.slug}`}><a className={`${cNButtons} right-0`}><BsChevronRight/></a></Link>
     } else {
-      return <Link href={`/gedichte/${poems[0].fields.slug}`}><a onClick={() => setisLoading(true)} className={`${cNButtons} right-0`}><BsChevronRight/></a></Link>
+      return <Link href={`/gedichte/${poems[0].fields.slug}`}><a className={`${cNButtons} right-0`}><BsChevronRight/></a></Link>
     }
   }
 
   if(poem) return (
     <div className='mb-40 px-4 lg:px-24'>
-        <div className='relative py-20 text-pink-900 text-center'>
+        <div className='relative py-20 text-pink-900 dark:text-pink-100 text-center'>
           <div className='between mb-4'>
             <PrevPoem />
-            {!isLoading
-            ? <h1 className='text-2xl lg:text-5xl font-semibold text-center'>{poem.fields.title}</h1>
-            : <Loader />}
+            <h1 className='text-2xl lg:text-5xl font-semibold text-center'>{poem.fields.title}</h1>
             <NextPoem />
           </div>
           <div className='text-xl font-normal'>{poem.fields.datum}</div>
-          
           {/* <div>{documentToReactComponents(info.descriptionpoems, richText_Options)}</div> */}
         </div>
       {gedichte &&
@@ -69,8 +64,9 @@ export default function Gedicht({ screen, slug, poems, setpoems, gedichte, setin
           w-full sm:w-11/12 max-w-[750px] m-6 mt-0 mb-12 p-4 mx-auto
           text-center text-sm sm:text-base md:text-sm lg:text-xl
           bg-gradient-to-b rounded-lg border ring-1
-          from-white to-pink-50 border-pink-400 ring-pink-900 text-pink-900
-          shadow-2xl
+          from-white to-pink-50 dark:bg-gradient-to-br dark:from-stone-800 dark:to-stone-900
+          border-pink-400 ring-pink-900 text-pink-900 dark:text-pink-100
+          shadow-2xl dark:shadow-black/80
           `}>
           {/* <div className='text-base font-normal'>{gedichte[0].fields.datum}</div> */}
           <div>{documentToReactComponents(poem.fields.content, richText_Options)}</div>

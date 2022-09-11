@@ -8,9 +8,10 @@ import Image from 'next/image'
 import Footer from './Footer'
 import Imprint from './Imprint'
 import Contactcard from './Contactcard'
+import ModeToggle from './ModeToggle'
 
 //classNames
-const cN = `font-semibold bg-gradient-to-b rounded-lg border ring-1 shadow-xl`
+const cN = `font-semibold bg-gradient-to-b rounded-lg border ring-1 shadow-xl dark:shadow-black/80`
 const colored = {
   lime: 'from-lime-200 to-lime-300 border-lime-400 ring-lime-900 text-lime-900',
   pink: 'from-pink-200 to-pink-300 border-pink-400 ring-pink-900 text-pink-900',
@@ -31,7 +32,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function SideBar({ screen, info, children }) {
+export default function SideBar({ screen, info, isDark, toggleMode, children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [isImprint, setisImprint] = useState(false)
   const [isContact, setisContact] = useState(false)
@@ -56,7 +57,7 @@ export default function SideBar({ screen, info, children }) {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <div className="fixed inset-0 bg-gray-600 bg-opacity-75" />
+              <div className="fixed inset-0 bg-stone-800 bg-opacity-75" />
             </Transition.Child>
 
             <div className="fixed inset-0 flex z-40">
@@ -69,7 +70,9 @@ export default function SideBar({ screen, info, children }) {
                 leaveFrom="translate-x-0"
                 leaveTo="-translate-x-full"
               >
-                <Dialog.Panel className="relative flex-1 flex flex-col max-w-xs w-full bg-white">
+                <Dialog.Panel className={`relative flex-1 flex flex-col max-w-xs w-full
+                  ${isDark ? 'bg-gradient-to-r from-stone-800  to-stone-900' : 'bg-white'}
+                `}>
                   <Transition.Child
                     as={Fragment}
                     enter="ease-in-out duration-300"
@@ -91,6 +94,16 @@ export default function SideBar({ screen, info, children }) {
                     </div>
                   </Transition.Child>
                   <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
+                    <div 
+                      onClick={toggleMode} 
+                      className={`
+                        absolute left-12 top-7
+                        rounded-full p-1 
+                        ring ring-transparent hover:ring-stone-500/50 dark:hover:ring-white/30 
+                        cursor-pointer duration-75 active:shadow-inner
+                    `}>
+                      <ModeToggle isDark={isDark} />
+                    </div>
                     {info && <div 
                       onClick={() => setisContact(true)} 
                       className="relative center h-12 w-12 rounded-full overflow-hidden mx-auto cursor-pointer"
@@ -115,7 +128,7 @@ export default function SideBar({ screen, info, children }) {
                             className={classNames(
                               isRoute(item.href)
                                 ? item.cN
-                                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+                                : `${isDark ? 'hover:bg-black/20 text-stone-300 hover:text-stone-200' : 'text-stone-600 hover:bg-stone-50 hover:text-stone-900'} `,
                               'group center px-2 py-2 text-base font-medium rounded-md'
                             )}
                           >
@@ -136,11 +149,20 @@ export default function SideBar({ screen, info, children }) {
         </Transition.Root>
 
         {/* Static sidebar for desktop */}
-        <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
+        <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 bg-white dark:bg-gradient-to-r dark:from-stone-800  dark:to-stone-900">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white">
+          <div className="flex-1 flex flex-col min-h-0 border-r border-stone-200 dark:border-stone-700">
             <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-scroll">
-              <div className="center flex-shrink-0 px-4">
+              <div className="relative center flex-shrink-0 px-4">
+              <div 
+                  onClick={toggleMode} 
+                  className={`absolute left-10
+                    rounded-full p-1 
+                    ring ring-transparent hover:ring-stone-500/50 dark:hover:ring-white/30 
+                    cursor-pointer duration-75 active:shadow-inner
+                `}>
+                  <ModeToggle isDark={isDark} />
+                </div>
                 {info && <div 
                     onClick={() => setisContact(true)} 
                     className="group relative center h-12 w-12 rounded-full overflow-hidden mx-auto cursor-pointer">
@@ -154,7 +176,7 @@ export default function SideBar({ screen, info, children }) {
                     />
                   </div>}
               </div>
-              <nav className="mt-5 flex-1 px-2 bg-white space-y-1">
+              <nav className="mt-5 flex-1 px-2 space-y-1">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
@@ -165,7 +187,7 @@ export default function SideBar({ screen, info, children }) {
                       className={classNames(
                         isRoute(item.href)
                         ? `${item.cN}` 
-                        : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 border-transparent',
+                        : 'text-stone-600 hover:bg-stone-50 hover:text-stone-900 dark:hover:bg-black/20 dark:text-stone-300 dark:hover:text-stone-200 border-transparent',
                         'group center px-2 py-2 text-sm font-medium rounded-md border'
                       )}
                     >
@@ -189,8 +211,10 @@ export default function SideBar({ screen, info, children }) {
             `}>
             <button
               type="button"
-              className="-ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900"
-              // onClick={() => setSidebarOpen(true)}
+              className={`
+                -ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md 
+                text-stone-500 hover:text-stone-900 dark:text-stone-100 dark:hover:text-stone-300
+              `}
             >
               <span className="sr-only">Open sidebar</span>
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
@@ -198,11 +222,11 @@ export default function SideBar({ screen, info, children }) {
             <div className={`
               pr-4 pb-0.5
               font-medium text-lg
-              ${isRoute('/reisebericht') ? 'text-lime-900'
-              : isRoute('/gedichte') ? 'text-pink-900'
-              : isRoute('/kurzgeschichten') ? 'text-blue-900'
-              : isRoute('/bilder') ? 'text-yellow-900'
-              : 'text-gray-900'}
+              ${isRoute('/reisebericht') ? 'text-lime-900 dark:text-lime-100'
+              : isRoute('/gedichte') ? 'text-pink-900 dark:text-pink-100'
+              : isRoute('/kurzgeschichten') ? 'text-blue-900 dark:text-blue-100'
+              : isRoute('/bilder') ? 'text-yellow-900 dark:text-yellow-100'
+              : 'text-stone-900'}
             `}>{
               isRoute('/reisebericht') ? 'Reisebericht'
               : isRoute('/gedichte') ? 'Gedichte'
@@ -211,8 +235,8 @@ export default function SideBar({ screen, info, children }) {
               : 'Home'
             }</div>
           </div>
-          <main className="flex-1 ">
-            <div className="">
+          <main className="flex-1 bg-gradient-to-r bg-white dark:from-stone-900 dark:via-stone-500 dark:to-stone-900">
+            <div className="min-h-screen">
               {children}
             </div>
           </main>
