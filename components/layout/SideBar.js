@@ -15,7 +15,7 @@ const cN = `font-semibold bg-gradient-to-b rounded-lg border ring-1 shadow-xl da
 const colored = {
   lime: 'from-lime-200 to-lime-300 border-lime-400 ring-lime-900 text-lime-900',
   pink: 'from-pink-200 to-pink-300 border-pink-400 ring-pink-900 text-pink-900',
-  stone: 'from-stone-200 to-stone-300 dark:from-stone-800 dark:to-stone-900 dark:text-white dark:border-stone-700 dark:ring-white/10 border-stone-400 ring-stone-900',
+  stone: 'from-stone-200 to-stone-300 border-stone-400 ring-stone-900',
   yellow: 'from-yellow-200 to-yellow-300 border-yellow-400 ring-yellow-900 text-yellow-900',
   blue: 'from-blue-200 to-blue-300 border-blue-400 ring-blue-900 text-blue-900'
 }
@@ -187,7 +187,7 @@ export default function SideBar({ screen, info, isDark, toggleMode, children }) 
                       className={classNames(
                         isRoute(item.href)
                         ? `${item.cN}` 
-                        : 'text-stone-600 hover:bg-stone-50 hover:text-stone-900 dark:hover:bg-black/20 dark:text-stone-300 dark:hover:text-stone-200 border-transparent',
+                        : 'text-stone-600 hover:bg-stone-50 hover:text-stone-900 dark:hover:bg-black/50 dark:text-stone-300 dark:hover:text-stone-200 border-transparent',
                         'group center px-2 py-2 text-sm font-medium rounded-md border'
                       )}
                     >
@@ -226,7 +226,7 @@ export default function SideBar({ screen, info, isDark, toggleMode, children }) 
               : isRoute('/gedichte') ? 'text-pink-900 dark:text-pink-100'
               : isRoute('/kurzgeschichten') ? 'text-blue-900 dark:text-blue-100'
               : isRoute('/bilder') ? 'text-yellow-900 dark:text-yellow-100'
-              : 'text-stone-900'}
+              : 'text-stone-900 dark:text-stone-100'}
             `}>{
               isRoute('/reisebericht') ? 'Reisebericht'
               : isRoute('/gedichte') ? 'Gedichte'

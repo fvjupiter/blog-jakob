@@ -20,7 +20,7 @@ export default function Gedichte({ poems, setpoems, gedichte, setinfo, informati
   }, [gedichte, information])
 
   return (
-    <div className='mb-40 px-4 lg:px-24'>
+    <div className='mb-40 px-4 lg:px-8'>
         <div className='py-20 text-pink-900 dark:text-pink-100 text-center'>
           <h1 className='text-4xl sm:text-5xl font-semibold text-center'>Gedichte</h1>
           {/* <div>{documentToReactComponents(info.descriptionGedichte, richText_Options)}</div> */}
@@ -29,7 +29,7 @@ export default function Gedichte({ poems, setpoems, gedichte, setinfo, informati
           {poems && poems.map((poem, index) => (
             <Link key={index} href={`/gedichte/${poem.fields.slug}`}>
               <div className={`
-                w-96 md:m-6 lg:m-8 mt-0 mb-8 p-4 lg:py-8
+                w-96 h-32 md:m-6 lg:m-8 mt-0 mb-8 p-4 center
                 text-center text-xl font-semibold 
                 bg-gradient-to-b rounded-lg border ring-1
                 from-white to-pink-50
@@ -37,8 +37,10 @@ export default function Gedichte({ poems, setpoems, gedichte, setinfo, informati
                 border-pink-400 ring-pink-900 text-pink-900
                 shadow-2xl dark:shadow-black/80 hover:shadow-none hover:ring-transparent duration cursor-pointer 
                 `}>
-                {poem.fields.title}
-                <div className='text-base font-normal'>{poem.fields.datum}</div>
+                  <div>
+                    {poem.fields.title}
+                    <div className='text-base font-normal'>{poem.fields.datum}</div>
+                  </div>
               </div>
             </Link>
           ))}
