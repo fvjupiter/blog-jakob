@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { createRef, useEffect, useRef, useState } from 'react'
 import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { INLINES } from '@contentful/rich-text-types';
@@ -20,20 +20,21 @@ export default function Reisebericht({ isDark, articles, setinfo, information })
               <h1 className='text-4xl sm:text-5xl font-semibold text-center mb-4'>Reisebericht</h1>
               <div className='p-des'>{documentToReactComponents(information.descriptionArticle, richText_Options)}</div>
             </div>
-            {articles.length && articles.map((item, index) => (
-              <div key={index} className={`relative`}>
-                  <Article 
-                    props={item.fields}
-                    click={() => setisOpen(index === isOpen ? -1 : index)}
-                  />
-              </div>
-            ))}
+            {articles.length && articles.map((item, index) => <div key={index} className={`relative`}>
+                <Article props={item.fields}/>
+            </div>)}
         </div>
     </>
     return <div className='h-screen w-full center'><Loader /></div>
 }
 
-const Article = ({ props, click }) => {
+const Article = ({ props }) => {
+  const ref = useRef(null)
+
+  const handleClick = () => {
+    if(ref)ref.current.scrollIntoView({ behavior: 'smooth' })
+  }
+
   const [isOpen, setisOpen] = useState(false)
   const [showLocation, setshowLocation] = useState(false)
   const getDate = (date) => {
@@ -43,7 +44,10 @@ const Article = ({ props, click }) => {
   }
   return <>
     <div 
-      onClick={() => setisOpen(!isOpen)}
+      onClick={() => {
+        handleClick()
+        setisOpen(!isOpen)
+      }}
       className={`
         sticky top-12 sm:top-[56px] md:top-0 between z-10
         xl:h-16 h-[52px] w-full -translate-y-[1px]
@@ -63,6 +67,7 @@ const Article = ({ props, click }) => {
         <BsChevronDown size={30} className={`${isOpen ? 'rotate-180' : 'rotate-0'} ml-4 duration cursor-pointer hover:text-white`}/>
       </div>
     </div>
+    <div ref={ref} className='-translate-y-24 md:-translate-y-12 lg:-translate-y-16'/>
     <div className={`${isOpen ? 'h-fit' : 'h-40'} relative p-text leading-8 overflow-hidden text-justify dark:bg-gradient-to-br dark:from-stone-800 dark:to-stone-900 dark:text-lime-100 dark:shadow-2xl dark:shadow-black`}>
         {documentToReactComponents(props.content, richText_Options)}
         <div className={`${isOpen ? 'opacity-0' : 'opacity-100'} absolute inset-0 bg-gradient-to-t from-white via-white/70 dark:from-black dark:via-black/70 duration`}/>
