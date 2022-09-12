@@ -5,15 +5,11 @@ import { useRouter } from 'next/router';
 export default function MetaHead() {
 
     const router = useRouter()
-    const [title, settitle] = useState('Site specific title')
-    const [content, setcontent] = useState('Site specific content')
+    const [title, settitle] = useState('Jakob\'s Blog')
+    const [content, setcontent] = useState('Tauche ein in die wunderbare Welt von Jakob und entdecke seine Gedichte, Geschichten, Reiseberichte und Bilder. Viel Spaß!')
 
     useEffect(() => {
         switch (router.asPath) {
-          // case '/': 
-          //   setcontent('Tauche ein in die wunderbare Welt von Jakob')
-          //   settitle('Jakob\'s Blog')
-          //   break;
           default: 
             setcontent('Tauche ein in die wunderbare Welt von Jakob und entdecke seine Gedichte, Geschichten, Reiseberichte und Bilder. Viel Spaß!')
             settitle('Jakob\'s Blog')

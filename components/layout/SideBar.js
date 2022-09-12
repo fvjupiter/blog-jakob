@@ -150,7 +150,6 @@ export default function SideBar({ screen, info, isDark, toggleMode, children }) 
 
         {/* Static sidebar for desktop */}
         <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 bg-white dark:bg-gradient-to-r dark:from-stone-800  dark:to-stone-900">
-          {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex-1 flex flex-col min-h-0 border-r border-stone-200 dark:border-stone-700">
             <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-scroll">
               <div className="relative center flex-shrink-0 px-4">
@@ -245,4 +244,3 @@ export default function SideBar({ screen, info, isDark, toggleMode, children }) 
     </>
   )
 }
-// -translate-y-[59px] md:translate-y-0

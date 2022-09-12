@@ -3,7 +3,6 @@ import { useEffect, useRef } from "react";
 import { BsX } from "react-icons/bs";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { INLINES } from '@contentful/rich-text-types';
-import Link from 'next/link';
 import Loader from "../Loader";
 
 const richText_Options = {

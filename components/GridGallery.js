@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
-// import Home from '../public/img/home.jpeg'
 
 export default function GridGallery({ imgArr, setImgId, screen }) {
-
     const [colWidth, setcolWidth] = useState(screen.width > 1024 ? screen.width * (121/12) / 3 : screen.width / 3)
     
     const [col1, setcol1] = useState([])
@@ -36,10 +34,8 @@ export default function GridGallery({ imgArr, setImgId, screen }) {
                 <Image 
                     width={colWidth}
                     height={img.height / img.width * colWidth}
-                        
+                    
                     src={`https:${img.src}`} 
-                    // placeholder="blur" 
-                    // blurDataURL={Home} 
                     className='group-hover:scale-110 group-active:scale-100 scale-100 duration-300'
                 />
                 
