@@ -22,7 +22,7 @@ export default function MetaHead() {
       <title>{title}</title>
       <meta name="theme-color" content="#000000"/>
       <meta name={title} content={content} />
-      {/* <link rel="icon" type="image/png" href="/icon-192x192.png" /> */}
+      <link rel="icon" type="image/png" href="/jakobcoffee.jpg" />
     </Head>
   )
 }

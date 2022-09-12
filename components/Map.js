@@ -12,7 +12,7 @@ export default function Map({ isMapOpen, setIsMapOpen, loc }) {
 
   return <>
     <div onClick={() => setIsMapOpen(false)} 
-        className={`${isMapOpen ? 'visible' : 'hidden'} fixed inset-0 backdrop bg-black/60 center z-[1000] cursor-alias p-8 sm:p-8 sm:py-10`}
+        className={`${isMapOpen ? 'visible' : 'hidden'} fixed inset-0 backdrop bg-black/60 center z-[1000] cursor-alias p-2 pt-12 sm:p-8 sm:py-10`}
         >
         <div style={{ border: '2px solid blue' }} 
             onClick={(e) => e.stopPropagation()}
