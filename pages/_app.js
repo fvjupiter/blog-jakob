@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-// import { ImageViewer } from '../components/ImageViewer'
 import Layout from '../components/layout/Layout'
+import smoothscroll from 'smoothscroll-polyfill';
 import ScreenObserver from '../components/ScreenObserver'
 import '../styles/globals.css'
 
@@ -18,6 +18,7 @@ function MyApp({ Component, pageProps }) {
   const [info, setinfo] = useState(null)
 
   useEffect(() => {
+    smoothscroll.polyfill()
     if(localStorage.getItem('isDark') != null) {
       setIsDark(localStorage.getItem('isDark') === 'true' ? true : false)
     }
