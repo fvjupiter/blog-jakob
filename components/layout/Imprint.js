@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { BsX } from "react-icons/bs";
+import { BsX } from "react-icons/bs"
 
 export default function Imprint({ screen, isImprint, setisImprint }) {
     const topRef = useRef(null)
