@@ -50,8 +50,8 @@ export default function Contactcard({ screen, isContact, setisContact, info }) {
                 <br/>
                 <div className='w-full between mx-auto max-w-[220px]'>
                     <span className="font-bold">Email: </span>
-                    <a href="mailto:jakobk@gmail.com" className="cursor-pointer hover:text-indigo-400 text-indigo-200">
-                        jakobk@gmail.com
+                    <a href="mailto:jakobwayne22@gmail.com" className="cursor-pointer hover:text-indigo-400 text-indigo-200">
+                        jakobwayne22@gmail.com
                     </a>
                 </div>
                 <div className='w-full between mx-auto max-w-[220px]'>
